@@ -1,7 +1,11 @@
-import React from "react";
+import Header from "../components/Header";
 
 const BeautyCutType = () => {
-  return <div>BeautyCutType</div>;
+  return (
+    <>
+      <Header title="시술메뉴" />
+    </>
+  );
 };
 
 export default BeautyCutType;

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import padNumber from "../utils/padNumber";
@@ -20,9 +20,10 @@ const Header = ({ title }: HeaderProp): JSX.Element => {
   const [hour, setHour] = useState(padNumber(now.getHours(), 2));
   const [min, setMin] = useState(padNumber(now.getMinutes(), 2));
 
-  console.log(year);
   useEffect(() => {
-    setInterval(() => {
+    let interval: string | number | NodeJS.Timeout;
+
+    interval = setInterval(() => {
       now = new Date();
       setYear(padNumber(now.getFullYear(), 2));
       setMonth(padNumber(now.getMonth(), 2));
@@ -30,10 +31,12 @@ const Header = ({ title }: HeaderProp): JSX.Element => {
       setHour(padNumber(now.getHours(), 2));
       setMin(padNumber(now.getMinutes(), 2));
     }, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <HeaderComponent>
+    <HeaderContainer>
       <BackButton onClick={() => navigate("/")}>
         <AiOutlineClose />
       </BackButton>
@@ -43,13 +46,13 @@ const Header = ({ title }: HeaderProp): JSX.Element => {
           {year}.{month}.{data}. {hour}:{min}
         </RealTime>
       </NavTitle>
-    </HeaderComponent>
+    </HeaderContainer>
   );
 };
 
 export default Header;
 
-const HeaderComponent = styled.header`
+const HeaderContainer = styled.header`
   left: 0;
   display: flex;
   padding: 0.5rem;
@@ -68,6 +71,7 @@ const NavTitle = styled.div`
 
 const RealTime = styled.div`
   margin-top: 0.4rem;
+  margin-bottom: 0.3rem;
   font-size: 3px;
   color: #a6a6a6;
 `;

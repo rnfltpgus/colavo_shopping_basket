@@ -1,7 +1,11 @@
-import React from "react";
+import Header from "../components/Header";
 
 const BeautyDiscount = () => {
-  return <div>BeautyDiscount</div>;
+  return (
+    <>
+      <Header title="할인" />
+    </>
+  );
 };
 
 export default BeautyDiscount;
