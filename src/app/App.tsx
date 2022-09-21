@@ -11,7 +11,7 @@ const App = () => {
     <AppContainer>
       <Routes>
         <Route path="/" element={<ShoppingBasket />} />
-        <Route path="/cut" element={<BeautyCutType />} />
+        <Route path="/item" element={<BeautyCutType />} />
         <Route path="/discount" element={<BeautyDiscount />} />
       </Routes>
     </AppContainer>
