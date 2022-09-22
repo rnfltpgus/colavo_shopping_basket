@@ -11,13 +11,12 @@ import styled from "styled-components";
 const BeautyCutType = (): JSX.Element => {
   const items = useSelector(selectItems);
   const itemsArray = Object.values(items);
-  console.log("🕹 itemsArray 지금 찍히고 있다.", itemsArray);
 
   return (
     <>
       <Header title="시술메뉴" />
       <CutTypeCadeContainer>
-        {itemsArray &&
+        {itemsArray.length > 0 ? (
           itemsArray.map((item) => {
             const { id, name, price } = item;
             return (
@@ -29,9 +28,11 @@ const BeautyCutType = (): JSX.Element => {
                 item={item}
               />
             );
-          })}
+          })
+        ) : (
+          <LoadingSpinner />
+        )}
       </CutTypeCadeContainer>
-      {/* <LoadingSpinner/> */}
       <CutTypeBottom />
     </>
   );

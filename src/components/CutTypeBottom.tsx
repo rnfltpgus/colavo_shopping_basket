@@ -1,12 +1,29 @@
+import { useEffect, useState } from "react";
 import { StyledLink } from "./shared/StyledLink";
+import { useSelector } from "react-redux";
+
+import { selectCartItems } from "../store";
 
 import styled from "styled-components";
 
 const CutTypeBottom = (): JSX.Element => {
+  const cartItems = useSelector(selectCartItems);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  useEffect(() => {
+    if (cartItems.length < 3) {
+      setIsButtonDisabled(true);
+    } else {
+      setIsButtonDisabled(false);
+    }
+  }, [cartItems]);
+
   return (
     <CutTypeBottomContainer>
       <SpanText>서비스를 선택하세요(여러 개 선택가능)</SpanText>
-      <CompletionButton to="/">완료</CompletionButton>
+      <CompletionButton to="/" disabled={isButtonDisabled}>
+        완료
+      </CompletionButton>
     </CutTypeBottomContainer>
   );
 };
