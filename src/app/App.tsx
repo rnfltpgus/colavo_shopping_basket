@@ -5,13 +5,22 @@ import BeautyCutType from "../pages/BeautyCutType";
 import BeautyDiscount from "../pages/BeautyDiscount";
 
 import styled from "styled-components";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import fetchData from "../store/FetchData";
 
-const App = () => {
+const App = (): JSX.Element => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchData());
+  }, [dispatch]);
+
   return (
     <AppContainer>
       <Routes>
         <Route path="/" element={<ShoppingBasket />} />
-        <Route path="/item" element={<BeautyCutType />} />
+        <Route path="/items" element={<BeautyCutType />} />
         <Route path="/discount" element={<BeautyDiscount />} />
       </Routes>
     </AppContainer>

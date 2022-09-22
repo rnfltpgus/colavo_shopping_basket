@@ -6,7 +6,7 @@ import styled from "styled-components";
 const BasketHeader = (): JSX.Element => {
   return (
     <BasketHeaderContainer>
-      <CutTypeButton to="/item">
+      <CutTypeButton to="/items">
         <AiOutlinePlusCircle size={15} />
         <SpanText>시술</SpanText>
       </CutTypeButton>
