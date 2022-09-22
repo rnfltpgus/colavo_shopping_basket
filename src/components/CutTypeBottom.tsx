@@ -14,10 +14,13 @@ const CutTypeBottom = () => {
 export default CutTypeBottom;
 
 const CutTypeBottomContainer = styled.footer`
+  border-top: 1px solid #dddddd;
   text-align: center;
 `;
 
 const SpanText = styled.span`
+  display: inline-block;
+  margin-top: 8px;
   font-size: small;
 `;
 

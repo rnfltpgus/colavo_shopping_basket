@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { FetchError, ColavoData } from "../types/colavo.types";
-import formatWithIds from "../utils/formaWithIds";
+import formatWithIds from "../utils/formatWithIds";
 
 const fetchData = createAsyncThunk<
   ColavoData,
