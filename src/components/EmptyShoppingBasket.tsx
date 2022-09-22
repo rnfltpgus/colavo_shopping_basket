@@ -1,7 +1,7 @@
 import { AiOutlineShopping } from "react-icons/ai";
 import styled from "styled-components";
 
-const EmptyShoppingBasket = () => {
+const EmptyShoppingBasket = (): JSX.Element => {
   return (
     <EmptyShoppingBasketContainer>
       <AiOutlineShopping size={100} />

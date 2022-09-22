@@ -3,7 +3,7 @@ import BasketHeader from "../components/BasketHeader";
 import BasketBottom from "../components/BasketBottom";
 import EmptyShoppingBasket from "../components/EmptyShoppingBasket";
 
-const ShoppingBasket = () => {
+const ShoppingBasket = (): JSX.Element => {
   return (
     <>
       <Header title="정세현" />

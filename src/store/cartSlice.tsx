@@ -1,18 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface Item {
-  id: number;
-  count: number;
-  name: string;
-  price: number;
-}
-
-interface CartSliceState {
-  items: Item[];
-}
+import { CartSliceState } from "../types/cart.types";
+import { Item } from "../types/colavo.types";
 
 const initialState: CartSliceState = {
   items: [],
+  discounts: [],
+  totalPrice: 0,
 };
 
 const cartSlice = createSlice({
@@ -20,15 +14,17 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action: PayloadAction<Item>) => {
-      state.items = [
-        ...state.items,
-        {
-          ...action.payload,
-          id: state.items.length,
-        },
-      ];
+      if (state.items.some((item) => item.id === action.payload.id)) {
+        return;
+      }
+
+      state.items.push({
+        ...action.payload,
+        totalPrice: 0,
+        discount: 0,
+      });
     },
-    removeItem: (state, action: PayloadAction<number>) => {
+    removeItem: (state, action: PayloadAction<string>) => {
       state.items = state.items.filter(({ id }) => id !== action.payload);
     },
   },

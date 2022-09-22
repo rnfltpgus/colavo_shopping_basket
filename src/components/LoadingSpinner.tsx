@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const LoadingSpinner = () => {
+const LoadingSpinner = (): JSX.Element => {
   return (
     <LoadingSpinnerContainer>
       <img src={"/img/LoadingSpinner.gif"} alt="loading" />

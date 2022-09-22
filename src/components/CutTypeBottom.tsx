@@ -2,7 +2,7 @@ import { StyledLink } from "./shared/StyledLink";
 
 import styled from "styled-components";
 
-const CutTypeBottom = () => {
+const CutTypeBottom = (): JSX.Element => {
   return (
     <CutTypeBottomContainer>
       <SpanText>서비스를 선택하세요(여러 개 선택가능)</SpanText>

@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 
-const BeautyDiscount = () => {
+const BeautyDiscount = (): JSX.Element => {
   return (
     <>
       <Header title="할인" />

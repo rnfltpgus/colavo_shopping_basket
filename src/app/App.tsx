@@ -1,13 +1,13 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 
 import ShoppingBasket from "../pages/ShoppingBasket";
 import BeautyCutType from "../pages/BeautyCutType";
 import BeautyDiscount from "../pages/BeautyDiscount";
+import fetchData from "../store/FetchData";
 
 import styled from "styled-components";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import fetchData from "../store/FetchData";
 
 const App = (): JSX.Element => {
   const dispatch = useDispatch();

@@ -20,7 +20,15 @@ const BeautyCutType = (): JSX.Element => {
         {itemsArray &&
           itemsArray.map((item) => {
             const { id, name, price } = item;
-            return <CutTypeCade key={id} id={id} name={name} price={price} />;
+            return (
+              <CutTypeCade
+                key={id}
+                id={id}
+                name={name}
+                price={price}
+                item={item}
+              />
+            );
           })}
       </CutTypeCadeContainer>
       {/* <LoadingSpinner/> */}
