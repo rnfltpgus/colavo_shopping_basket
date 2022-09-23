@@ -1,4 +1,6 @@
 # 🛍 Colavo Shopping Basket
+![ShoppingBasket](https://user-images.githubusercontent.com/80088956/191905265-a80a730b-6a80-4774-8c44-cdc61541095b.png)
+
 <br>
 
 ## ⚙️ 사용방법
