@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { CartSliceState } from "../types/cart.types";
-import { Item } from "../types/colavo.types";
+import { Discount, Item } from "../types/colavo.types";
 
 const initialState: CartSliceState = {
   items: [],
@@ -27,9 +27,32 @@ const cartSlice = createSlice({
     removeItem: (state, action: PayloadAction<string>) => {
       state.items = state.items.filter(({ id }) => id !== action.payload);
     },
+    addDiscount: (state, action: PayloadAction<Discount>) => {
+      const allItemIdsInCart = Object.values(state.items).map(
+        (item) => item.id
+      );
+
+      const newDiscount = {
+        ...action.payload,
+        appliedItemIds: allItemIdsInCart,
+        totalPrice: 0,
+      };
+
+      if (state.discounts.some((discount) => discount.id === newDiscount.id)) {
+        return;
+      }
+
+      state.discounts.push(newDiscount);
+    },
+    removeDiscount: (state, action: PayloadAction<string>) => {
+      state.discounts = state.discounts.filter(
+        (discount) => discount.id !== action.payload
+      );
+    },
   },
 });
 
-export const { addItem, removeItem } = cartSlice.actions;
+export const { addItem, removeItem, addDiscount, removeDiscount } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -1,27 +1,30 @@
-import { useEffect, useState } from "react";
-import { StyledLink } from "./shared/StyledLink";
-import { useSelector } from "react-redux";
+// import { useEffect, useState } from "react";
+// import { useSelector } from "react-redux";
 
-import { selectCartItems } from "../store";
+// import { selectCartItems } from "../store";
+import { StyledLink } from "./shared/StyledLink";
 
 import styled from "styled-components";
 
 const CutTypeBottom = (): JSX.Element => {
-  const cartItems = useSelector(selectCartItems);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  // const cartItems = useSelector(selectCartItems);
+  // const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
-  useEffect(() => {
-    if (cartItems.length < 3) {
-      setIsButtonDisabled(true);
-    } else {
-      setIsButtonDisabled(false);
-    }
-  }, [cartItems]);
+  // useEffect(() => {
+  //   if (cartItems.length < 3) {
+  //     setIsButtonDisabled(true);
+  //   } else {
+  //     setIsButtonDisabled(false);
+  //   }
+  // }, [cartItems]);
 
   return (
     <CutTypeBottomContainer>
       <SpanText>서비스를 선택하세요(여러 개 선택가능)</SpanText>
-      <CompletionButton to="/" disabled={isButtonDisabled}>
+      <CompletionButton
+        to="/"
+        // disabled={isButtonDisabled}
+      >
         완료
       </CompletionButton>
     </CutTypeBottomContainer>
