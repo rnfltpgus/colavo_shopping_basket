@@ -4,7 +4,7 @@ import * as reduxThunk from "redux-thunk/extend-redux";
 import cartSlice from "./cartSlice";
 import colavoSlice from "./colavoScilce";
 import { Discounts, Items } from "../types/colavo.types";
-import { CartDiscount, CartItem } from "../types/cart.types";
+import { CartDiscount, CartItem, CartSliceState } from "../types/cart.types";
 
 const store = configureStore({
   reducer: {
@@ -15,6 +15,7 @@ const store = configureStore({
 
 type RootState = ReturnType<typeof store.getState>;
 
+export const selectCart = (state: RootState): CartSliceState => state.cart;
 export const selectCartItems = (state: RootState): CartItem[] =>
   state.cart.items;
 export const selectCartDiscounts = (state: RootState): CartDiscount[] =>

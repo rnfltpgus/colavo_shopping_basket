@@ -19,6 +19,7 @@ const BeautyCutType = (): JSX.Element => {
         {itemsArray.length > 0 ? (
           itemsArray.map((item) => {
             const { id, name, price } = item;
+
             return (
               <CutTypeCade
                 key={id}

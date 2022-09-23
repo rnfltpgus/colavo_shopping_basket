@@ -19,6 +19,7 @@ const BeautyDiscount = (): JSX.Element => {
         {discountsArray.length > 0 ? (
           discountsArray.map((discount) => {
             const { id, name, rate } = discount;
+
             return (
               <DiscountCade
                 key={id}

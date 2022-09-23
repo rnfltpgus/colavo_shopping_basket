@@ -2,6 +2,10 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { CartSliceState } from "../types/cart.types";
 import { Discount, Item } from "../types/colavo.types";
+import {
+  calculateTotalDiscounts,
+  calculateTotalPrice,
+} from "../utils/calculatePrice";
 
 const initialState: CartSliceState = {
   items: [],
@@ -49,10 +53,24 @@ const cartSlice = createSlice({
         (discount) => discount.id !== action.payload
       );
     },
+    updateTotalPrice: (state) => {
+      const totalItemPrice: number = calculateTotalPrice(state.items);
+      const totalDiscount: number = calculateTotalDiscounts(
+        state.discounts,
+        state.items
+      );
+
+      state.totalPrice = totalItemPrice - totalDiscount;
+    },
   },
 });
 
-export const { addItem, removeItem, addDiscount, removeDiscount } =
-  cartSlice.actions;
+export const {
+  addItem,
+  removeItem,
+  addDiscount,
+  removeDiscount,
+  updateTotalPrice,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

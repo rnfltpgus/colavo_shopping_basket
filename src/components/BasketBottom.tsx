@@ -2,12 +2,16 @@ import { StyledLink } from "./shared/StyledLink";
 
 import styled from "styled-components";
 
-const BasketBottom = () => {
+type BasketBottomProps = {
+  totalPrice: number;
+};
+
+const BasketBottom = ({ totalPrice }: BasketBottomProps): JSX.Element => {
   return (
     <>
       <TotalPriceContainer>
         합계
-        <TotalPrice>0 원</TotalPrice>
+        <TotalPrice>{totalPrice}원</TotalPrice>
       </TotalPriceContainer>
       <NextButton to="/">다음</NextButton>
     </>
